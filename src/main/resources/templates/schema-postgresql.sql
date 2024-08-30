@@ -33,3 +33,11 @@ CREATE TABLE IF NOT EXISTS Asignacion_Empleado_Proyecto (
   CONSTRAINT fk_empleado FOREIGN KEY (id_empleado) REFERENCES Empleado(id_empleado),
   CONSTRAINT fk_proyecto FOREIGN KEY (id_proyecto) REFERENCES Proyecto(id_proyecto)
 );
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
