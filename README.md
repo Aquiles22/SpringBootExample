@@ -1,4 +1,4 @@
-# Paga Todo
+# Ejemplo Spring Boot
 
 ## Generación de ambiente
 
