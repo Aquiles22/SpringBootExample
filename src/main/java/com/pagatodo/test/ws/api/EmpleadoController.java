@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import com.pagatodo.test.dao.Empleado;
+import com.pagatodo.test.entity.Empleado;
 import com.pagatodo.test.service.EmpleadoService;
 
 @RestController

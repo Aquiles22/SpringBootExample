@@ -3,8 +3,8 @@ package com.pagatodo.test.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pagatodo.test.dao.AsignacionEmpleadoProyecto;
-import com.pagatodo.test.dao.AsignacionEmpleadoProyectoPK;
+import com.pagatodo.test.entity.AsignacionEmpleadoProyecto;
+import com.pagatodo.test.entity.AsignacionEmpleadoProyectoPK;
 import com.pagatodo.test.repository.AsignacionEmpleadoProyectoRepository;
 
 import java.util.List;
@@ -34,12 +34,4 @@ public class AsignacionEmpleadoProyectoService {
     public void eliminarAsignacion(AsignacionEmpleadoProyectoPK id) {
         asignacionEmpleadoProyectoRepository.deleteById(id);
     }
-
-    /*public List<AsignacionEmpleadoProyecto> obtenerAsignacionesPorEmpleado(Long empleadoId) {
-        return asignacionEmpleadoProyectoRepository.findByEmpleadoId(empleadoId);
-    }
-
-    public List<AsignacionEmpleadoProyecto> obtenerAsignacionesPorProyecto(Long proyectoId) {
-        return asignacionEmpleadoProyectoRepository.findByProyectoId(proyectoId);
-    }*/
 }

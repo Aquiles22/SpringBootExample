@@ -1,5 +1,6 @@
 package com.pagatodo.test.security.jwt;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,9 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtil {
-    private String secret = "pagaTodo";
+
+    @Value("${secret.word}")
+    private String secret;
 
     public String getUsername(String token){
         return getClaims(token, Claims::getSubject);
@@ -30,9 +33,8 @@ public class JwtUtil {
     }
 
     public Claims extractAllClaims(String token){
-        byte[] secretKeyBytes = java.util.Base64.getDecoder().decode(secret);
         return Jwts.parser()
-                    .setSigningKey(secretKeyBytes)
+                    .setSigningKey(secret)
                     .parseClaimsJws(token)
                     .getBody();
     }
@@ -48,13 +50,12 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject){
-        byte[] secretKeyBytes = java.util.Base64.getDecoder().decode(secret);
         String jwt = Jwts.builder()
         .setClaims(claims)
         .setSubject(subject)
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + 100 * 60 * 60 * 10))
-        .signWith(SignatureAlgorithm.HS256, secretKeyBytes).compact();
+        .signWith(SignatureAlgorithm.HS256, secret).compact();
         return jwt;
     }
 
