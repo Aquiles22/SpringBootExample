@@ -3,7 +3,8 @@ package com.pagatodo.test.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import com.pagatodo.test.dao.Proyecto;
+
+import com.pagatodo.test.entity.Proyecto;
 import com.pagatodo.test.repository.ProyectoRepository;
 
 @Service

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pagatodo.test.dao.AsignacionEmpleadoProyecto;
-import com.pagatodo.test.dao.AsignacionEmpleadoProyectoPK;
+import com.pagatodo.test.entity.AsignacionEmpleadoProyecto;
+import com.pagatodo.test.entity.AsignacionEmpleadoProyectoPK;
 import com.pagatodo.test.service.AsignacionEmpleadoProyectoService;
 
 import java.util.List;
@@ -34,7 +34,8 @@ public class AsignacionEmpleadoProyectoController {
     }
 
     @GetMapping("/{empleadoId}/{proyectoId}")
-    public AsignacionEmpleadoProyecto obtenerAsignacionPorId(@PathVariable Long empleadoId, @PathVariable Long proyectoId) {
+    public AsignacionEmpleadoProyecto obtenerAsignacionPorId(@PathVariable Long empleadoId,
+            @PathVariable Long proyectoId) {
         AsignacionEmpleadoProyectoPK id = new AsignacionEmpleadoProyectoPK();
         id.setIdEmpleado(empleadoId);
         id.setIdProyecto(proyectoId);
@@ -53,14 +54,4 @@ public class AsignacionEmpleadoProyectoController {
         id.setIdProyecto(proyectoId);
         asignacionEmpleadoProyectoService.eliminarAsignacion(id);
     }
-
-    /*@GetMapping("/empleado/{empleadoId}")
-    public List<AsignacionEmpleadoProyecto> obtenerAsignacionesPorEmpleado(@PathVariable Long empleadoId) {
-        return asignacionEmpleadoProyectoService.obtenerAsignacionesPorEmpleado(empleadoId);
-    }
-
-    @GetMapping("/proyecto/{proyectoId}")
-    public List<AsignacionEmpleadoProyecto> obtenerAsignacionesPorProyecto(@PathVariable Long proyectoId) {
-        return asignacionEmpleadoProyectoService.obtenerAsignacionesPorProyecto(proyectoId);
-    }*/
 }
