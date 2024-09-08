@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
-import com.pagatodo.test.dao.User;
+import com.pagatodo.test.entity.User;
 import com.pagatodo.test.repository.UserRepository;
 
 @Service

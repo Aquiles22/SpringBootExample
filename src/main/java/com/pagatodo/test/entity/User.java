@@ -1,4 +1,4 @@
-package com.pagatodo.test.dao;
+package com.pagatodo.test.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
